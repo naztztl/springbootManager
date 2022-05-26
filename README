@@ -1,0 +1,4 @@
+本地运行项目：
+    vue: npm run serve
+    springboot: 启动后，访问9000端口
+    mysql: 数据库按照 src/resources/schema.sql 文件中的建表语句创建
