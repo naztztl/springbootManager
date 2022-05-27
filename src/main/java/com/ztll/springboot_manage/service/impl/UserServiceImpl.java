@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author ztll
- * @since 2022-05-10
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {

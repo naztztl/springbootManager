@@ -33,7 +33,6 @@ import org.springframework.web.multipart.MultipartFile;
  * </p>
  *
  * @author ztll
- * @since 2022-05-10
  */
 @RestController
 @RequestMapping("/user")

@@ -7,12 +7,12 @@
 
     <el-container>
       <el-header style="">
-        <Header :collapse="collapse" :collapseBtnClass="collapseBtnClass" />
+        <Header :collapse="collapse" :collapseBtnClass="collapseBtnClass"  :user="user" />
       </el-header>
 
       <el-main>
 <!--        表示当前页面的子路由会在 router-view 里面展示  index.js里的children-->
-        <router-view />
+        <router-view @refreshUser="getUser"/>
       </el-main>
     </el-container>
   </el-container>
@@ -24,8 +24,9 @@ el-menu {
 }
 
 .el-header {
-  background-color: #B3C0D1;
-  color: #333;
+  /*background-color: #B3C0D1;*/
+  /*color: #333;*/
+  border-bottom: #8c939d solid 1px;
   line-height: 60px;
 }
 
@@ -49,10 +50,12 @@ export default {
       isCollapse: false,
       sideWidth: 200,
       logoTextShow: true,
+      user: {},
     }
   },
   created() {
-    // 请求分页查询数据
+    //一开始从后台获取最新的user数据
+    this.getUser()
   },
   components: {
     Aside,
@@ -70,6 +73,14 @@ export default {
         this.collapseBtnClass = 'el-icon-s-fold'
         this.logoTextShow = true
       }
+    },
+    getUser() {
+      let username = localStorage .getItem("user") ? JSON.parse(localStorage .getItem("user")).username : ''
+      //从后台获取user数据
+      this.request.get('/user/username/' + username).then(res => {
+        // 重新赋值后台最新的user数据
+        this.user = res.data
+      })
     },
   }
 }

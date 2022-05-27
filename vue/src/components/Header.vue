@@ -12,7 +12,7 @@
 <!--    <el-dropdown style="cursor: pointer; width: 150px; text-align: right">-->
     <el-dropdown style="cursor: pointer">
       <div style="display: inline-block">
-        <img :src="user.avatarUrl" alt="" style="width: 30px; border-radius: 50%; position: relative; top: 5px; right: 5px">
+        <img :src="user.avatarUrl" alt="" style="width: 30px; border-radius: 50%; position: relative; top: 10px; right: 5px">
         <span>{{ user.nickname }}</span>
         <i class="el-icon-arrow-down" style="margin-left: 5px"></i>
       </div>
@@ -34,6 +34,7 @@ export default {
   props: {
     collapseBtnClass: String,
     collapse: Function,
+    user: Object,
   },
   computed: {
     currentPathName() {
@@ -42,7 +43,7 @@ export default {
   },
   data() {
     return {
-      user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {}
+      // user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {}
     }
   },
   watch: {  //监听路由变化

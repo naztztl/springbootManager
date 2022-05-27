@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -17,7 +19,6 @@ import lombok.ToString;
  * </p>
  *
  * @author ztll
- * @since 2022-05-10
  */
 @Getter
 @Setter
@@ -51,7 +52,7 @@ public class User implements Serializable {
       private String address;
 
       @ApiModelProperty("创建时间")
-      private LocalDateTime creatTime;
+      private Date creatTime;
 
       @ApiModelProperty("头像")
       private String avatarUrl;

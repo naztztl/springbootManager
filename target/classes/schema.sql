@@ -25,3 +25,10 @@ CREATE TABLE `sys_file` (
     `md5` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '文件md5',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `sys_role` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
