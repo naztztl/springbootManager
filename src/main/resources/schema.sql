@@ -32,3 +32,14 @@ CREATE TABLE `sys_role` (
     `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `ztll`.`sys_menu` (
+   `id` INT NOT NULL AUTO_INCREMENT COMMENT 'id',
+   `name` VARCHAR(45) NULL COMMENT '名称',
+   `path` VARCHAR(45) NULL COMMENT '路径',
+   `icon` VARCHAR(45) NULL COMMENT '图标',
+   `description` VARCHAR(45) NULL COMMENT '描述',
+   PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;

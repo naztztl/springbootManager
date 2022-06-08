@@ -2,6 +2,7 @@ package com.ztll.springboot_manage.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.ztll.springboot_manage.common.Result;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
@@ -27,45 +28,62 @@ public class RoleController {
 
     // 新增和修改
     @PostMapping
-    public boolean save(@RequestBody Role role) {
+    public Result save(@RequestBody Role role) {
         //新增或者更新
-        return roleService.saveOrUpdate(role);
+        return Result.success(roleService.saveOrUpdate(role));
     }
 
     //根据id删除
     @DeleteMapping("/{id}")
-    public boolean delete(@PathVariable Integer id) {
-        return roleService.removeById(id);
+    public Result delete(@PathVariable Integer id) {
+        return Result.success(roleService.removeById(id));
     }
 
     //批量删除
     @PostMapping("/del/batch")
-    public boolean deleteBatch(@RequestBody List<Integer> ids) {
-        return roleService.removeByIds(ids);
+    public Result deleteBatch(@RequestBody List<Integer> ids) {
+        return Result.success(roleService.removeByIds(ids));
     }
 
     // 查询所有数据
     @GetMapping
-    public List<Role> findAll() {
-        return roleService.list();
+    public Result findAll() {
+        return Result.success(roleService.list());
     }
 
     // 根据id查询
     @GetMapping("/{id}")
-    public Role findOne(@PathVariable Integer id) {
-        return roleService.getById(id);
+    public Result findOne(@PathVariable Integer id) {
+        return Result.success(roleService.getById(id));
     }
 
     //分页查询
     @GetMapping("/page")
-    public Page<Role> findPage(@RequestParam Integer pageNum,
-                                @RequestParam Integer pageSize) {
+    public Result findPage(@RequestParam Integer pageNum,
+                            @RequestParam Integer pageSize,
+                           @RequestParam String name) {
 
         QueryWrapper<Role> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("name", name);
         queryWrapper.orderByDesc("id");
-        return roleService.page(new Page<>(pageNum, pageSize), queryWrapper);
+        return Result.success(roleService.page(new Page<>(pageNum, pageSize), queryWrapper));
     }
 
+    /**
+     * 绑定角色和菜单的关系
+     * @param roleId    角色 id
+     * @param menuIds   菜单 id 数组
+     * @return
+     */
+    @PostMapping("/roleMenu/{roleId}")
+    public Result roleMenu(@PathVariable Integer roleId, @RequestBody List<Integer> menuIds) {
+        roleService.setRoleMenu(roleId, menuIds);
+        return Result.success();
+    }
 
+    @GetMapping("/roleMenu/{roleId}")
+    public Result getRoleMenu(@PathVariable Integer roleId) {
+        return Result.success(roleService.getRoleMenu(roleId));
+    }
 }
 

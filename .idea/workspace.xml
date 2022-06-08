@@ -22944,9 +22944,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Interface" />
         <option value="Vue Single File Component" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -23007,7 +23007,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringbootManageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="SpringbootManageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="springboot_manage(自动生成代码)" />
       <extension name="coverage">
         <pattern>
@@ -23039,7 +23039,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.SpringbootManageApplication" />
         <item itemvalue="应用程序.CodeGenerator" />
       </list>
     </recent_temporary>
@@ -23108,6 +23107,17 @@
       <workItem from="1653555877065" duration="21477000" />
       <workItem from="1653619685900" duration="95000" />
       <workItem from="1653636544029" duration="11786000" />
+      <workItem from="1653662482458" duration="1489000" />
+      <workItem from="1653709860808" duration="7078000" />
+      <workItem from="1653742754497" duration="19000" />
+      <workItem from="1654058499208" duration="4160000" />
+      <workItem from="1654087918394" duration="2000" />
+      <workItem from="1654179707988" duration="2837000" />
+      <workItem from="1654313327076" duration="11000" />
+      <workItem from="1654313358855" duration="2000" />
+      <workItem from="1654609857320" duration="123000" />
+      <workItem from="1654610064196" duration="2570000" />
+      <workItem from="1654692818764" duration="6557000" />
     </task>
     <servers />
   </component>

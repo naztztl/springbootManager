@@ -9,11 +9,12 @@ const routes = [
   {
     path: '/',
     component: () => import('../views/Manage.vue'),
-    redirect: "/home",
+    // redirect: "/home",
     children: [
       { path: 'home', name: '首页', component: () => import('../views/Home.vue')},
       { path: 'user', name: '用户管理', component: () => import('../views/User.vue')},
       { path: 'role', name: '角色管理', component: () => import('../views/Role.vue')},
+      { path: 'menu', name: '菜单管理', component: () => import('../views/Menu.vue')},
       { path: 'person', name: '个人信息', component: () => import('../views/Person.vue')},
       { path: 'file', name: '文件管理', component: () => import('../views/File.vue')},
     ]
@@ -49,6 +50,20 @@ router.beforeEach((to, from, next) => {
   console.log(from)
   localStorage.setItem("currentPathName", to.name)  //设置当前的路由名称,为了在Header组件中去使用
   store.commit("setPath")  //触发store的数据更新
+
+  let user = JSON.parse(localStorage.getItem('user'));
+  if (to.path === '/login' || to.path === '/register') return next()
+  // //获取用户页面token信息
+  // console.log('1: ' + localStorage.getItem('user'))
+  // let token = localStorage.getItem('token')
+  // //如果token数据为null则跳转到指定路径
+  if (!user) {
+    return next("/login")
+  } else {
+    console.log('1: ' + user.token)
+    if (!user.token) return next("/login")
+  }
+
   next()  //放行路由
 })
 
