@@ -41,6 +41,7 @@
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column prop="id" label="ID" width="80"></el-table-column>
       <el-table-column prop="name" label="名称" ></el-table-column>
+      <el-table-column prop="flag" label="唯一标识" ></el-table-column>
       <el-table-column prop="description" label="描述" ></el-table-column>
       <el-table-column label="操作" width="280" align="center">
         <template slot-scope="scope">
@@ -75,6 +76,9 @@
       <el-form label-width="80px" size="small">
         <el-form-item label="名称">
           <el-input v-model="form.name" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="唯一标识">
+          <el-input v-model="form.flag" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="描述">
           <el-input v-model="form.description" autocomplete="off"></el-input>

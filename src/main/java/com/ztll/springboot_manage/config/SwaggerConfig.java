@@ -26,7 +26,7 @@ public class SwaggerConfig {
      */
     @Bean
     public Docket restApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30)
                 .groupName("标准接口")
                 .apiInfo(apiInfo("Spring Boot中使用Swagger2构建RESTful APIs", "1.0"))
                 .useDefaultResponseMessages(true)

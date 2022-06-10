@@ -22944,9 +22944,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Vue Single File Component" />
         <option value="Class" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -22984,6 +22985,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="D:\soft\ProgramSoft\IntelliJ IDEA 2021.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -22991,6 +22993,9 @@
       <recent name="D:\CodeFile\java\SpringBoot\springboot+vue\springboot_manage(generate)\vue\src\views" />
       <recent name="D:\CodeFile\java\SpringBoot\springboot+vue\springboot_manage(generate)\src\main\resources" />
       <recent name="D:\CodeFile\java\SpringBoot\springboot+vue\springboot_manage\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CodeFile\java\SpringBoot\springboot+vue\springboot_manage(generate)\vue\src\assets" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SpringbootManageApplication">
@@ -23117,7 +23122,10 @@
       <workItem from="1654313358855" duration="2000" />
       <workItem from="1654609857320" duration="123000" />
       <workItem from="1654610064196" duration="2570000" />
-      <workItem from="1654692818764" duration="6557000" />
+      <workItem from="1654692818764" duration="7368000" />
+      <workItem from="1654738080881" duration="24508000" />
+      <workItem from="1654843899220" duration="1660000" />
+      <workItem from="1654847205962" duration="3957000" />
     </task>
     <servers />
   </component>

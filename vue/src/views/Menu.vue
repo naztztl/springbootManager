@@ -50,6 +50,7 @@
       <el-table-column prop="id" label="ID" width="80"></el-table-column>
       <el-table-column prop="name" label="名称" ></el-table-column>
       <el-table-column prop="path" label="路径" ></el-table-column>
+      <el-table-column prop="pagePath" label="页面路径" ></el-table-column>
       <el-table-column label="图标" align="center">
         <template slot-scope="scope">
           <i :class="scope.row.icon" style="font-size: 18px" />
@@ -82,6 +83,9 @@
         <el-form-item label="路径">
           <el-input v-model="form.path" autocomplete="off"></el-input>
         </el-form-item>
+        <el-form-item label="页面路径">
+          <el-input v-model="form.pagePath" autocomplete="off"></el-input>
+        </el-form-item>
         <el-form-item label="图标">
             <el-select clearable v-model="form.icon" placeholder="请选择" style="width: 100%">
               <el-option v-for="item in options" :key="item.name" :label="item.name" :value="item.value">
@@ -102,6 +106,8 @@
 </template>
 
 <script>
+import {serverIp} from "../../public/config";
+
 export default {
   name: "Menu",
   data() {
@@ -200,7 +206,7 @@ export default {
       this.load()
     },
     exp() {
-      window.open("http://localhost:9000/menu/export")
+      window.open(`http://${serverIp}:9000/menu/export`)
     },
     handleExcelImportSuccess() {
       this.$message.success('文件导入成功')

@@ -20,14 +20,6 @@ const routes = [
     ]
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
-  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue')
@@ -37,7 +29,11 @@ const routes = [
     name: 'Register',
     component: () => import('../views/Register.vue')
   },
-
+  {
+    path: '*',
+    name: 'NotFound',
+    component: () => import('../views/404.vue')
+  },
 ]
 
 const router = new VueRouter({
@@ -45,6 +41,48 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+//注意 刷新页面会导致页面路由重置
+// export const setRoutes = () => {
+//   const storeMenus = localStorage.getItem("menus")
+//   if (storeMenus) {
+//     //拼装动态路由
+//     const manageRoute = { path: '/', name: 'Manage', component: () => import('../views/Manage.vue'), redirect: "/home", children: [] }
+//     //
+//     const menus = JSON.parse(storeMenus)
+//     menus.forEach(item => {
+//       if (item.path) {
+//         let itemMenu = {
+//           path: item.path.replace('/', ''),
+//           name: item.name,
+//           component: () => import('../views/' + item.pagePath + '.vue')
+//         }
+//         manageRoute.children.push(itemMenu)
+//       } else if (item.children.length) {
+//         item.children.forEach(item => {
+//           if (item.path) {
+//             let itemMenu = {
+//               path: item.path.replace('/', ''),
+//               name: item.name,
+//               component: () => import('../views/' + item.pagePath + '.vue')
+//             }
+//             manageRoute.children.push(itemMenu)
+//           }
+//         })
+//       }
+//     })
+//
+//     //获取当前的路由对象名称数组
+//     const currentRouteNames = router.getRoutes().map(v => v.name)
+//     if (!currentRouteNames.includes('Manage')) {
+//       //动态添加到现在的路由对象中去
+//       router.addRoute(manageRoute)
+//     }
+//   }
+// }
+
+// setRoutes()
+
 
 router.beforeEach((to, from, next) => {
   console.log(from)
@@ -63,7 +101,6 @@ router.beforeEach((to, from, next) => {
     console.log('1: ' + user.token)
     if (!user.token) return next("/login")
   }
-
   next()  //放行路由
 })
 

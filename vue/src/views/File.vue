@@ -8,7 +8,7 @@
     </div>
     <div style="margin: 10px 0">
       <el-upload
-          action="http://localhost:9000/file/upload"
+          :action="'http://'+ serverIp +':9000/file/upload'"
           :show-file-list="false"
           :on-success="handleFileUploadSuccess"
           style="display: inline-block"
@@ -77,6 +77,8 @@
 </template>
 
 <script>
+import {serverIp} from "../../public/config";
+
 export default {
   name: "File",
   data() {
@@ -87,6 +89,7 @@ export default {
       pageNum: 1,
       pageSize: 10,
       total: 0,
+      serverIp: serverIp,
     }
   },
   created() {
